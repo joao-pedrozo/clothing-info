@@ -1,0 +1,7 @@
+{
+    "products": [
+      { "id": "1", "title": "Camiseta legal", "image" : "https://www.stadiumgoods.com/cdn-cgi/image/fit%3Dcontain%2Cformat%3Dauto%2Cwidth%3D720/media/catalog/product/6/9/69LE-1507_3AP.png", "slug" : "camiseta-legal" },
+      { "id": "2", "title": "Calças" },
+      { "id": "3", "title": "Meias" }
+    ]
+  }
