@@ -1,25 +1,40 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import api from '../../services/api';
 
-interface CustomRouterProp {
-    s: string;
+import api from '../../services/api';
+import ProductResultItem from '../../components/ProductResultItem';
+import * as S from './styles';
+
+interface Product {
+    id: string;
+    shoe: string;
+    media: {
+        smallImageUrl: string;
+    }
 }
 
-interface HomeProps extends RouteComponentProps<CustomRouterProp>{}
+const App: React.FC<RouteComponentProps> = ({ location }) => {
 
-const App: React.FC<HomeProps> = ({ location }) => {
+    const [products, setProducts] = useState<Product[]>([]);
+
+    async function fetchData(){
+        await api.get('/browse?&_search=jordan&dataType=product').then(response => {
+            setProducts(response.data.Products);
+        });
+    };
+
     useEffect(() => {
-        async function fetchData(){
-            api.get('/browse?&_search=yeezy&dataType=product').then(response => {
-                console.log(response);
-            })
-        }
         fetchData();
     }, []);
 
     return (
-        <h1>teste</h1>
+        <S.Wrapper>
+            <S.ItemsList>
+            {products.map(product => (
+                <ProductResultItem productImageUrl={product.media.smallImageUrl} productTitle={product.shoe}/>
+            ))}
+            </S.ItemsList>
+        </S.Wrapper>
     )
 };
 

@@ -18,7 +18,7 @@ function App(){
     return (
         <S.Wrapper>
             <AiOutlineSearch />
-            <S.Input onKeyPress={onKeyPress}/>
+            <S.Input onKeyPress={onKeyPress} placeholder="Digita um texto aí, bro :-)"/>
         </S.Wrapper>
     )
 }

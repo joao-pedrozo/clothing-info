@@ -1,10 +1,16 @@
 import React from 'react';
-import SearchBar from './components/SearchBar'
+import { BrowserRouter as Router } from 'react-router-dom';
+
+import Routes from './Routes';
+import GlobalStyles from './styles/global';
 
 function App() {
   return (
     <>
-      <SearchBar/>
+      <Router>
+        <Routes />
+        <GlobalStyles />
+      </Router>
     </>
   );
 }

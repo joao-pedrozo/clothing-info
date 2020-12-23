@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
     display: flex;
     align-items: center;
     padding: 5px;
-    max-width: 250px;
+    max-width: 250px; 
 `;
 
 export const Input = styled.input`
